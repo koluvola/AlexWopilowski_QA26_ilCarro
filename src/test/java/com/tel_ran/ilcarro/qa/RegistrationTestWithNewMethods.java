@@ -31,59 +31,53 @@ public class RegistrationTestWithNewMethods {
     @Test
 
     public void testRegistration() {
-        //open reg form
-        wd.findElement(By.cssSelector("[href=\"/signup\"]")).click();
 
-        //wd.findElement(By.cssSelector("[href=\"/car\"]")).click();
-        //wd.findElement(By.name("address")).click();
+        openRegForm();
+        fillRegistrationForm("Alex", "Wopilowski", "alexw@gmail.com", "12345678A");
+        clickCheckBox(By.id("check_policy"));
+        delay(5000);
+        clickButton(By.className("yalla_yalla__1Jxk6"));
+        delay(5000);
 
-        //fill registration
-        //fill first name field
-        wd.findElement(By.id("first_name")).click();
-        wd.findElement(By.id("first_name")).clear();
-        wd.findElement(By.id("first_name")).sendKeys("Alex");
+    }
 
-        //fill last name field
-        wd.findElement(By.id("second_name")).click();
-        wd.findElement(By.id("second_name")).clear();
-        wd.findElement(By.id("second_name")).sendKeys("Wopilowski");
-
-        //fill email field
-        wd.findElement(By.id("email")).click();
-        wd.findElement(By.id("email")).clear();
-        wd.findElement(By.id("email")).sendKeys("alexw@gmail.com");
-
-        //fill password field
-        wd.findElement(By.id("password")).click();
-        wd.findElement(By.id("password")).clear();
-        wd.findElement(By.id("password")).sendKeys("12345678A");
-
-        //wd.findElement(By.name("address")).click();
-
-        //select check box
-
-        WebElement we = wd.findElement(By.id("check_policy"));
-        we.click();
-
-        //delay 10 sek
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        //click Yalla button
-        WebElement wb = wd.findElement(By.className("yalla_yalla__1Jxk6"));
+    private void clickButton(By locator) {
+        WebElement wb = wd.findElement(locator);
         wb.click();
+    }
 
-        //delay 10 sek
+    private void clickCheckBox(By locator) {
+        WebElement we = wd.findElement(locator);
+        we.click();
+    }
+
+    private void fillRegistrationForm(String fName, String lName, String email, String password) {
+        type(fName, By.id("first_name"));
+        type(lName, By.id("second_name"));
+        type(email, By.id("email"));
+        type(password, By.id("password"));
+    }
+
+    private void delay(int millis) {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(millis);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
 
+    private void openRegForm() {
+        click(By.cssSelector("[href=\"/signup\"]"));
+    }
 
+    private void type(String str, By locator) {
+        click(locator);
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(str);
+    }
+
+    private void click(By locator) {
+        wd.findElement(locator).click();
     }
 
 }

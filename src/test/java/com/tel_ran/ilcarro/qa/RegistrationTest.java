@@ -16,7 +16,9 @@ public class RegistrationTest {
 
     public void setUp() {
         wd = new ChromeDriver();
-        wd.get("https://ilcarro-dev-v1.firebaseapp.com/");
+        //wd.get("https://ilcarro-dev-v1.firebaseapp.com/");
+        wd.navigate().to("https://ilcarro-dev-v1.firebaseapp.com/");
+        wd.manage().window().maximize();
 
     }
 

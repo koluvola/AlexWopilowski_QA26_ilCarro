@@ -9,16 +9,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class RegistrationTest {
-
     WebDriver wd;
 
     @BeforeMethod
 
     public void setUp() {
         wd = new ChromeDriver();
-        //wd.get("https://ilcarro-dev-v1.firebaseapp.com/");
-        wd.navigate().to("https://ilcarro-dev-v1.firebaseapp.com/");
-        wd.manage().window().maximize();
+        wd.get("https://ilcarro-dev-v1.firebaseapp.com/");
 
     }
 
@@ -32,8 +29,9 @@ public class RegistrationTest {
     @Test
 
     public void testRegistration() {
+        //"Alex", "Wopilowski", "alexw@gmail.com", "12345678A"
         //open reg form
-        wd.findElement(By.cssSelector("[href=\"/signup\"]")).click();
+        clickByCssSelector("[href=\"/signup\"]");
 
         //wd.findElement(By.cssSelector("[href=\"/car\"]")).click();
         //wd.findElement(By.name("address")).click();
@@ -67,24 +65,29 @@ public class RegistrationTest {
         we.click();
 
         //delay 10 sek
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        delay(1000);
 
         //click Yalla button
-        WebElement wb = wd.findElement(By.className("yalla_yalla__1Jxk6"));
+        //  WebElement wb = wd.findElement(By.className("yalla_yalla__1Jxk6"));
+        WebElement wb = wd.findElement(By.cssSelector("[type='submit']"));
         wb.click();
 
         //delay 10 sek
+        delay(1000);
+
+
+    }
+
+    private void clickByCssSelector(String cssSelector) {
+        wd.findElement(By.cssSelector(cssSelector)).click();
+    }
+
+    private void delay(int millis) {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(millis);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
     }
 
 

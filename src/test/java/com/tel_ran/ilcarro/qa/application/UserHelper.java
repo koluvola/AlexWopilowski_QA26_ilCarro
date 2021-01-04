@@ -55,7 +55,7 @@ public class UserHelper extends HelperBase {
     }
 
     public void openRegForm() {
-        click(By.cssSelector("[href='/signup']"));
+        clickByPosition(By.cssSelector("[href='/signup']"));
 
     }
 

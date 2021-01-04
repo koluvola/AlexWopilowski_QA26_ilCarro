@@ -2,6 +2,7 @@ package com.tel_ran.ilcarro.qa.application;
 
 import com.tel_ran.ilcarro.qa.tests.LoginTest;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -26,6 +27,7 @@ public class ApplicationManager {
     public void init() {
 
         wd = new FirefoxDriver();
+        //wd = new ChromeDriver();
         wd.navigate().to("https://ilcarro-dev-v1.firebaseapp.com/");
         //open window of site to full size
         wd.manage().window().maximize();

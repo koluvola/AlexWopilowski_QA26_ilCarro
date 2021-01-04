@@ -1,11 +1,12 @@
-package com.tel_ran.ilcarro.qa;
+package com.tel_ran.ilcarro.qa.tests;
 
+import com.tel_ran.ilcarro.qa.application.ApplicationManager;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public class TestBase {
 
-    protected  ApplicationManager appl = new ApplicationManager();
+    public ApplicationManager appl = new ApplicationManager();
 
     @BeforeMethod
     public void setUp() {

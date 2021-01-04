@@ -1,4 +1,4 @@
-package com.tel_ran.ilcarro.qa;
+package com.tel_ran.ilcarro.qa.application;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +11,9 @@ public class UserHelper extends HelperBase {
 
     public void clickLogInButton() {
         clickByCssSelector("[href=\"/login\"]");
+
+
+
     }
 
 
@@ -44,14 +47,14 @@ public class UserHelper extends HelperBase {
     }
 
 
-    protected void fillRegistrationForm(String fName, String lName, String email, String password) {
+    public void fillRegistrationForm(String fName, String lName, String email, String password) {
         type(fName, By.id("first_name"));
         type(lName, By.id("second_name"));
         type(email, By.id("email"));
         type(password, By.id("password"));
     }
 
-    protected void openRegForm() {
+    public void openRegForm() {
         click(By.cssSelector("[href='/signup']"));
 
     }

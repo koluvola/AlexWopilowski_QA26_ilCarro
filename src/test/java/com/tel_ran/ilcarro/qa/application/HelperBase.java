@@ -1,4 +1,4 @@
-package com.tel_ran.ilcarro.qa;
+package com.tel_ran.ilcarro.qa.application;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +21,7 @@ public class HelperBase {
         wd.findElement(locator).click();
     }
 
-    protected void delay(int time) {
+    public void delay(int time) {
         try {
             Thread.sleep(time);
         } catch (InterruptedException e) {
@@ -29,21 +29,21 @@ public class HelperBase {
         }
     }
 
-    protected void clickButton(By locator) {
+    public void clickButton(By locator) {
         WebElement wb = wd.findElement(locator);
         wb.click();
     }
 
-    protected void clickCheckBox(By locator) {
+    public void clickCheckBox(By locator) {
         WebElement we = wd.findElement(locator);
         we.click();
     }
 
-    protected void clickButtonYalla(String url) {
+    public void clickButtonYalla(String url) {
         clickByCssSelector(url);
     }
 
-    protected void clickByCssSelector(String cssSelector) {
+    public void clickByCssSelector(String cssSelector) {
         wd.findElement(By.cssSelector(cssSelector)).click();
 
     }
@@ -52,7 +52,6 @@ public class HelperBase {
     }
 
     public boolean isRegistrationFormPresent() {
-
         return isElementPresent(By.xpath("//h2[contains(.,'Registration')]"));
     }
 

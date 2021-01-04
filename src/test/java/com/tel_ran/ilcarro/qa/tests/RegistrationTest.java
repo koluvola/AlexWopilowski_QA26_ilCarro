@@ -1,4 +1,4 @@
-package com.tel_ran.ilcarro.qa;
+package com.tel_ran.ilcarro.qa.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -1,5 +1,8 @@
-package com.tel_ran.ilcarro.qa;
+package com.tel_ran.ilcarro.qa.tests;
 
+import com.tel_ran.ilcarro.qa.application.HelperBase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -7,13 +10,13 @@ import org.testng.annotations.Test;
 public class LoginTest extends TestBase {
 
     //"Alex", "Wopilowski", "alexw@gmail.com", "12345678A"
-    String xPath = "//a[contains(.,'logOut')]";
+   // String xPath = "//a[contains(.,'logOut')]";
 
     @BeforeMethod
     public void insurePreconditions() {
-        /*if (appl.getUser().isUserLogIn()) {
+        if (appl.getUser().isUserLogIn()) {
             appl.getUser().clickLogOutButtonOnHeader(appl.xPath);
-        }*/
+        }
 
     }
 
